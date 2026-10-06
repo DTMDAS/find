@@ -1,43 +1,332 @@
-AWDH CYBER FIND INFO
+```html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support & Complaint</title>
 
-Enter Mobile Number
-[ 9876543210                         ] [SEARCH]
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#f5f7fa,#e8eef5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  color:#222;
+}
+
+.container{
+  width:100%;
+  max-width:560px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 12px 40px rgba(0,0,0,.12);
+}
+
+.header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.icon{
+  width:65px;
+  height:65px;
+  margin:auto;
+  border-radius:50%;
+  background:#1677ff;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+h1{
+  font-size:27px;
+  margin-bottom:7px;
+}
+
+.subtitle{
+  color:#666;
+  font-size:14px;
+  line-height:1.5;
+}
+
+label{
+  display:block;
+  font-size:14px;
+  font-weight:bold;
+  margin:16px 0 7px;
+}
+
+input,textarea{
+  width:100%;
+  border:1px solid #d8dde5;
+  border-radius:11px;
+  padding:13px 14px;
+  font-size:15px;
+  outline:none;
+  transition:.2s;
+  background:#fafbfc;
+}
+
+input:focus,textarea:focus{
+  border-color:#1677ff;
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(22,119,255,.08);
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.submit-btn{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:14px;
+  margin-top:22px;
+  background:#1677ff;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:#0d63d8;
+}
+
+.submit-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.note{
+  text-align:center;
+  margin-top:14px;
+  color:#777;
+  font-size:12px;
+}
+
+.message{
+  display:none;
+  text-align:center;
+  padding:28px 15px;
+}
+
+.success-icon{
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:#19a463;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  margin:0 auto 15px;
+}
+
+.message h2{
+  margin-bottom:9px;
+}
+
+.message p{
+  color:#666;
+  line-height:1.6;
+}
+
+.again{
+  margin-top:20px;
+  padding:11px 20px;
+  border:0;
+  border-radius:9px;
+  background:#1677ff;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+
+    <div id="formSection">
+
+      <div class="header">
+        <div class="icon">🎧</div>
+        <h1>Support Center</h1>
+        <div class="subtitle">
+          अपनी समस्या हमें भेजें। हमारी टीम आपकी शिकायत की जांच करेगी।
+        </div>
+      </div>
+
+      <form id="supportForm">
+
+        <label for="name">नाम / Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="अपना नाम लिखें"
+          required
+        >
+
+        <label for="email">Gmail / Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@gmail.com"
+          required
+        >
+
+        <label for="mobile">मोबाइल नंबर / Mobile Number</label>
+        <input
+          type="tel"
+          id="mobile"
+          name="mobile"
+          placeholder="10 digit mobile number"
+          maxlength="10"
+          required
+        >
+
+        <label for="hindi">
+          समस्या हिंदी में / समस्या लिखें
+        </label>
+        <textarea
+          id="hindi"
+          name="hindi"
+          placeholder="अपनी समस्या हिंदी में लिखें..."
+          required
+        ></textarea>
+
+        <label for="english">
+          Problem in English
+        </label>
+        <textarea
+          id="english"
+          name="english"
+          placeholder="Write your problem in English..."
+          required
+        ></textarea>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          शिकायत जमा करें / Submit Complaint
+        </button>
+
+        <div class="note">
+          आपकी जानकारी केवल आपकी शिकायत को समझने और सहायता देने के लिए उपयोग की जाएगी।
+        </div>
+
+      </form>
+
+    </div>
+
+    <div id="successSection" class="message">
+      <div class="success-icon">✓</div>
+
+      <h2>शिकायत जमा हो गई</h2>
+
+      <p>
+        Please wait...<br>
+        आपकी शिकायत जमा कर दी गई है।<br>
+        हमारी टीम जल्द ही आपकी समस्या की जांच करेगी।
+      </p>
+
+      <button class="again" onclick="newComplaint()">
+        नई शिकायत करें
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const form = document.getElementById("supportForm");
+const submitBtn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Please wait... शिकायत जमा हो रही है";
+
+  const formData = new FormData(form);
+
+  try {
+
+    /*
+      IMPORTANT:
+      यह submit.php आपके server पर होना चाहिए।
+      Telegram bot token को index.html में न रखें।
+    */
+
+    const response = await fetch("submit.php", {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if(result.success){
+
+      document.getElementById("formSection").style.display = "none";
+      document.getElementById("successSection").style.display = "block";
+
+    }else{
+
+      alert(result.message || "शिकायत जमा नहीं हो सकी। कृपया दोबारा प्रयास करें।");
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "शिकायत जमा करें / Submit Complaint";
+    }
+
+  } catch(error){
+
+    alert("Server से connection नहीं हो पाया। कृपया कुछ देर बाद फिर कोशिश करें।");
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "शिकायत जमा करें / Submit Complaint";
+  }
+
+});
 
 
-Status: success | Records found: 3
+function newComplaint(){
 
-Search Result
+  document.getElementById("successSection").style.display = "none";
+  document.getElementById("formSection").style.display = "block";
 
-oid       68A7F21C91
-mobile    9876543210
-name      Rahul Verma
-fname     Suresh Verma
-address   Jaitpur Extension, Delhi
-alt       9000001234
-circle    JIO DELHI
-id        721945830126
-email     null
+  form.reset();
 
-────────────────────────────────
+  submitBtn.disabled = false;
+  submitBtn.textContent = "शिकायत जमा करें / Submit Complaint";
+}
+</script>
 
-oid       69B8D32F47
-mobile    9876543210
-name      Amit Kumar
-fname     Rajesh Kumar
-address   Sector 18, Noida
-alt       9111112345
-circle    AIRTEL DELHI
-id        638214795302
-email     null
+</body>
+</html>
+```
 
-────────────────────────────────
-
-oid       70C9E43A58
-mobile    9876543210
-name      Mohit Sharma
-fname     Anil Sharma
-address   Indira Nagar, Lucknow
-alt       9222223456
-circle    VI UP EAST
-id        845736291054
-email     null
